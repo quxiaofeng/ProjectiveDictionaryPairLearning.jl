@@ -40,7 +40,7 @@ For experiment on UCF50, we used the Action bank feature provided in: http://www
 
 Dowload the code to 'D:\code\nips14'
 
-    cd("D:\\code\\nips14\\src")
+    cd("D:\\code\\DPL.jl\\src")
     include("DPL.jl")
     using DPL
     dpldemo()

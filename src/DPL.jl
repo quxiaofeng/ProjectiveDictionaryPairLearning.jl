@@ -71,7 +71,7 @@ TtTime   = toq();
 Accuracy = sum(TtLabel'.==PredictLabel)/size(TtLabel,2);
 @printf("\nThe running time for DPL training is : %.02f s ", TrTime);
 @printf("\nThe running time for DPL testing is : %.02f s ", TtTime);
-@printf("\nRecognition rate for DPL is : %.04f \% \n", Accuracy*100.0);
+@printf("\nRecognition rate for DPL is : %.03f\% \n", Accuracy*100.0);
 
 end
 
