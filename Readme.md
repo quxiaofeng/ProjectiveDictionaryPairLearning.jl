@@ -7,9 +7,13 @@ This code is for the paper:
 > + From **“dictionary learning”** to **“dictionary pair learning”**!
 > 
 
+## Authors' Pages
+
 + [Lei Zhang's page](http://www4.comp.polyu.edu.hk/~cslzhang/)
 
 + [Shuhang Gu's Page](https://sites.google.com/site/shuhanggu/home)
+
+## Other Downloads
 
 + [Download The Paper](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_final.pdf)
 
@@ -47,9 +51,17 @@ Dowload the code to 'D:\code\nips14'
 
 The output should be
 
->     The running time for DPL training is : 22.257
->     The running time for DPL testing is : 0.812
->     Recognition rate for DPL is : 0.976
+>     The running time for DPL training is : 26.15 s
+>     The running time for DPL testing is : 0.91 s
+>     Recognition rate for DPL is : 0.976%
+
+## Comparison with MATLAB version
+
+Actually the MATLAB version runs much faster as below.
+
+>     The running time for DPL training is : 3.27 s
+>     The running time for DPL testing is : 0.19 s
+>     Recognition rate for DPL is : 0.976% 
 
 ---
 
