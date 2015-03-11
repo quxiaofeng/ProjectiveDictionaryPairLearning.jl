@@ -13,7 +13,7 @@ This code is for the paper:
 
 + [Shuhang Gu's Page](https://sites.google.com/site/shuhanggu/home)
 
-## Other Downloads
+## Downloads
 
 + [Download The Paper](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_final.pdf)
 
@@ -77,3 +77,4 @@ If you have problems with the julia code, please contact us at xiaofeng.qu.hk@ie
 
 + Add `test`
 + Optimize the performance
++ Proper packaging
