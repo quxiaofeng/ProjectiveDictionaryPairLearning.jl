@@ -16,14 +16,10 @@
 # =========================================================================
 #  Usage: 
 #
-#       dpldemo();
-#
-#
-#
-#
-#
-#
-#
+#       cd("Drive:\\path\\to\\the\\src")
+#       include("DPL.jl")
+#       using DPL
+#       dpldemo()
 #
 # =========================================================================
 
@@ -56,7 +52,7 @@ tau      = 0.05;
 lambda   = 0.003;
 gamma    = 0.0001;
 
-# DPL trainig
+# DPL training
 tic();
 DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, tau, lambda, gamma);
 TrTime   = toq();
