@@ -16,59 +16,60 @@
 # =========================================================================
 #  Usage: 
 #
-#       cd("Drive:\\path\\to\\the\\src")
-#       include("DPL.jl")
-#       using DPL
-#       dpldemo()
+#       dpldemo();
+#
+#
+#
+#
+#
+#
+#
 #
 # =========================================================================
 
 module DPL
 using MAT # to load and save data
+using NumericExtensions
 
-include("normcol_equal.jl")
 include("TrainDPL.jl")
 include("ClassificationDPL.jl")
 
-export dpldemo, TrainDPL, ClassificationDPL, normcol_equal
+export dpldemo, TrainDPL, ClassificationDPL
 
 function dpldemo()
-
-# Load training and testing data
-data = matread("YaleB_Jiang.mat");
-TrData, TrLabel = data["TrData"], data["TrLabel"];
-TtData, TtLabel = data["TtData"], data["TtLabel"];
-
-# Column normalization
-TrData   = normcol_equal(TrData);
-TtData   = normcol_equal(TtData);
-
-TrLabel  = int(TrLabel);
-TtLabel  = int(TtLabel);
-
-# Parameter setting
-DictSize = 30;
-tau      = 0.05;
-lambda   = 0.003;
-gamma    = 0.0001;
-
-# DPL training
-tic();
-DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, tau, lambda, gamma);
-TrTime   = toq();
-
-# DPL testing
-tic();
-PredictLabel, Error = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize);
-TtTime   = toq();
-################### Code before is tested #################################### 
+    # Load training and testing data
+    data = matread("YaleB_Jiang.mat");
+    TrData, TrLabel = data["TrData"], data["TrLabel"]
+    TtData, TtLabel = data["TtData"], data["TtLabel"]
+    # Column normalization
+    normalize!(TrData, 2, 1)
+    normalize!(TtData, 2, 1)
+    
+    TrLabel = int(TrLabel)
+    TtLabel = int(TtLabel)
+    
+    # Parameter setting
+    DictSize = 30
+    τ = 0.05
+    λ = 0.003
+    γ = 0.0001
+    
+    # DPL trainig
+    tic()
+    DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, τ, λ, γ)
+    TrTime = toq()
+    
+    # DPL testing
+    tic()
+    PredictLabel, Error = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize)
+    TtTime = toq()
+    
+    ################### Code before is tested #################################### 
  
-# Show accuracy and time
-Accuracy = sum(TtLabel'.==PredictLabel)/size(TtLabel,2);
-@printf("\nThe running time for DPL training is : %.02f s ", TrTime);
-@printf("\nThe running time for DPL testing is : %.02f s ", TtTime);
-@printf("\nRecognition rate for DPL is : %.03f%% \n", Accuracy);
-
+    # Show accuracy and time
+    Accuracy = sum(TtLabel'.==PredictLabel)/size(TtLabel,2)
+    @printf("\nThe running time for DPL training is : %.02f s ", TrTime)
+    @printf("\nThe running time for DPL testing is : %.02f s ", TtTime)
+    @printf("\nRecognition rate for DPL is : %.03f%% \n", Accuracy)
 end
-
 end
