@@ -61,8 +61,8 @@ TrTime   = toq();
 tic();
 PredictLabel, Error = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize);
 TtTime   = toq();
-################### Code before is tested #################################### 
- 
+################### Code before is tested ####################################
+
 # Show accuracy and time
 Accuracy = sum(TtLabel'.==PredictLabel)/size(TtLabel,2);
 @printf("\nThe running time for DPL training is : %.02f s ", TrTime);
