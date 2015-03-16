@@ -49,10 +49,10 @@ Dowload the code to 'D:\code\nips14'
     using DPL
     dpldemo()
 
-The output should be
+The output should be (after the optimization by afternone)
 
->     The running time for DPL training is : 26.15 s
->     The running time for DPL testing is : 0.91 s
+>     The running time for DPL training is : 10.29 s
+>     The running time for DPL testing is : 0.23 s
 >     Recognition rate for DPL is : 0.976%
 
 ## Comparison with MATLAB version
@@ -75,6 +75,8 @@ If you have problems with the julia code, please contact us at xiaofeng.qu.hk@ie
 
 # TODO
 
-+ Add `test`
-+ Optimize the performance
++ ~~Add `test`~~
++ NEW add more tests
++ ~~Optimize the performance~~
++ NEW optimize the performance further
 + Proper packaging
