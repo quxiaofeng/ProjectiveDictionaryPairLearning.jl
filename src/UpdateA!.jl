@@ -1,6 +1,6 @@
 include("diagadd!.jl")
 
-function UpdateA!(A, D, DataMat, P, τ, DictSize)
+function updateA!(A, D, DataMat, P, τ, DictSize)
     # Update tempDictCoef by Eq. (8)
 
     for i=1:length(A)

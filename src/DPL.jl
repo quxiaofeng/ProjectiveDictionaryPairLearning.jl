@@ -48,8 +48,8 @@ function dpldemo()
     normalize!(TrData, 2, 1)
     normalize!(TtData, 2, 1)
 
-    TrLabel  = int(TrLabel)
-    TtLabel  = int(TtLabel)
+    TrLabel = int(TrLabel)
+    TtLabel = int(TtLabel)
 
     # Parameter setting
     DictSize = 30

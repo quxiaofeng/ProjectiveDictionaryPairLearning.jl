@@ -9,7 +9,7 @@ function add_sub!(aMat, bMat, cMat)
     end
 end
 
-function UpdateD!(D, A, DataMat)
+function updateD!(D, A, DataMat)
    # Update D by Eq. (12)
     for i=1:length(D)
         @inbounds TempCoef = A[i]

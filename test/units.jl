@@ -1,4 +1,4 @@
-using DPL, MAT, NumericExtensions, Base.Test
+using MAT, NumericExtensions, Base.Test
 
 ###### Testing TrainDPL
 # load DictMat, EncoderMat, TrData, TrLabel, DictSize, tau, lambda, gamma

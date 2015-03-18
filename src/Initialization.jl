@@ -1,4 +1,4 @@
-include("UpdateA!.jl")
+include("updateA!.jl")
 
 # return inv(τ*A*A' + λ*B*B' + γ*I)
 function getinv(τ, λ, γ, A, B)
@@ -17,7 +17,7 @@ function getinv(τ, λ, γ, A, B)
     inv(C)
 end
 
-function Initialization(Data, Label, DictSize, τ, λ, γ)
+function initialization(Data, Label, DictSize, τ, λ, γ)
     # In this initialization function, we do the following things:
     # 1. Random initialization of dictionary pair D and P for each class
     # 2. Compute the class-specific inverse matrix used in Eq. (10)
@@ -56,7 +56,7 @@ function Initialization(Data, Label, DictSize, τ, λ, γ)
         @inbounds DataInvMat[i] = getinv(τ, λ, γ, TempData, TempDataC)
     end
 
-    UpdateA!(CoefMat, DictMat, DataMat, P, τ, DictSize)
+    updateA!(CoefMat, DictMat, DataMat, P, τ, DictSize)
 
     DataMat, DictMat, P, DataInvMat, CoefMat, ClassNum, Dim
 end

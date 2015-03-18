@@ -1,21 +1,21 @@
 using NumericExtensions
 
-include("Initialization.jl")
-include("UpdateP!.jl")
-include("UpdateD!.jl")
-include("UpdateA!.jl")
+include("initialization.jl")
+include("updateP!.jl")
+include("updateD!.jl")
+include("updateA!.jl")
 
 function TrainDPL(Data, Label, DictSize, τ, λ, γ)
     # This is the DPL training function
 
     # Initialize D and P, compute the inverse matrix used in Eq. (10), update A for one time
-    DataMat, D, P, DataInvMat, A = Initialization(Data, Label, DictSize, τ, λ, γ)
+    DataMat, D, P, DataInvMat, A = initialization(Data, Label, DictSize, τ, λ, γ)
 
     # Alternatively update P, D and A
     for i = 1:20
-        UpdateP!(P, A, DataInvMat, DataMat, τ)
-        UpdateD!(D, A, DataMat)
-        UpdateA!(A, D, DataMat, P, τ, DictSize)
+        updateP!(P, A, DataInvMat, DataMat, τ)
+        updateD!(D, A, DataMat)
+        updateA!(A, D, DataMat, P, τ, DictSize)
     end
 
     EncoderMat = zeros(size(P[1], 1) * size(P, 1), size(P[1], 2))
