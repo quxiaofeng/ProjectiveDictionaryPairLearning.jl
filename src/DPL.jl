@@ -39,7 +39,8 @@ export dpldemo, TrainDPL, ClassificationDPL
 
 function dpldemo()
     # Load training and testing data
-    data = matread("YaleB_Jiang.mat")
+    matFileName = "YaleB_Jiang.mat"
+    data = matread(joinpath(dirname(@__FILE__), matFileName))
     TrData, TrLabel = data["TrData"], data["TrLabel"]
     TtData, TtLabel = data["TtData"], data["TtLabel"]
 

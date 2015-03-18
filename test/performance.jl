@@ -27,7 +27,7 @@ normalizeTime = toq()
     #     "DictSize" => DictSize
     # ))
 matFileName = "class-specific.mat"
-data = matread(matFileName)
+data = matread(joinpath(dirname(@__FILE__), matFileName))
 TtData, DictMat, EncoderMat, DictSize = data["TtData"], data["DictMat"], data["EncoderMat"], data["DictSize"]
 
 # prepare

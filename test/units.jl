@@ -15,7 +15,7 @@ using MAT, NumericExtensions, Base.Test
     #     "gamma" => gamma,
     # ))
 matFileName = "testDataForTrainDpl.mat"
-data = matread(matFileName)
+data = matread(joinpath(dirname(@__FILE__), matFileName))
 DictMat, EncoderMat, TrData, TrLabel = data["DictMat"], data["EncoderMat"], data["TrData"], data["TrLabel"]
 DictSize, tau, lambda, gamma = data["DictSize"], data["tau"], data["lambda"], data["gamma"]
 
