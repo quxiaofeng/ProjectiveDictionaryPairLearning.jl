@@ -12,6 +12,9 @@ notifications:
   email: false
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+  - julia -e 'Pkg.clone("HDF5"); Pkg.build("HDF5")'
   - julia -e 'Pkg.clone(pwd()); Pkg.build("DPL")'
-  - julia -e 'Pkg.test("DPL", coverage=true)'
-  - julia -e 'cd(Pkg.dir("DPL")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  - if [ $TRAVIS_JULIA_VERSION = "nightly" ]; then julia --check-bounds=yes --inline=no --code-coverage=user -e 'include(Pkg.dir("DPL", "test", "runtests.jl"))'; fi
+  - if [ $TRAVIS_JULIA_VERSION = "release" ]; then julia --check-bounds=yes -e 'Pkg.test("DPL")'; fi
+after_success:
+  - if [ $TRAVIS_JULIA_VERSION = "nightly" ]; then julia -e 'cd(Pkg.dir("DPL")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'; fi
