@@ -6,7 +6,7 @@
 ## Installation
 
 ```julia
-Pkg.clone("https://github.com/quxiaofeng/DPL.jl")
+Pkg.clone("git://github.com/quxiaofeng/DPL.jl.git")
 ```
 
 ## Usage
