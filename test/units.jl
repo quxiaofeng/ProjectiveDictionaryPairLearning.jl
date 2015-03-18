@@ -1,4 +1,4 @@
-import DPL
+using DPL
 using MAT, NumericExtensions, Base.Test
 
 ###### Testing TrainDPL
