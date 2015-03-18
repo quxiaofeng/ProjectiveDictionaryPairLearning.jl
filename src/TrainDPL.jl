@@ -1,9 +1,9 @@
 using NumericExtensions
 
-include("initialization.jl")
-include("updateP!.jl")
-include("updateD!.jl")
-include("updateA!.jl")
+include(joinpath(dirname(@__FILE__), "initialization.jl"))
+include(joinpath(dirname(@__FILE__), "updateP!.jl"))
+include(joinpath(dirname(@__FILE__), "updateD!.jl"))
+include(joinpath(dirname(@__FILE__), "updateA!.jl"))
 
 function TrainDPL(Data, Label, DictSize, τ, λ, γ)
     # This is the DPL training function

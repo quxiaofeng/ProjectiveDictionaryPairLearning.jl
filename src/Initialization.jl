@@ -1,4 +1,4 @@
-include("updateA!.jl")
+include(joinpath(dirname(@__FILE__), "updateA!.jl")
 
 # return inv(τ*A*A' + λ*B*B' + γ*I)
 function getinv(τ, λ, γ, A, B)
