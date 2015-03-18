@@ -20,10 +20,9 @@
 #
 #  Usage:
 #
-#       cd("Drive:\\path\\to\\the\\src")
-#       include("DPL.jl")
-#       using DPL
-#       dpldemo()
+#    Pkg.clone("https://github.com/quxiaofeng/DPL.jl")
+#    using DPL
+#    dpldemo()
 #
 #
 # =========================================================================

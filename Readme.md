@@ -35,27 +35,16 @@ For experiment on UCF50, we used the Action bank feature provided in: http://www
 
 # USAGE
 
-    cd("Drive:\\Path\\to\\the\\src")
-    include("DPL.jl")
-    using DPL
-    dpldemo()
-
-or
-
     Pkg.clone("https://github.com/quxiaofeng/DPL.jl")
     using DPL
     dpldemo()
 
 ## Example
 
-Dowload the code to 'D:\code\nips14'
-
-    cd("D:\\code\\DPL.jl\\src")
-    include("DPL.jl")
     using DPL
     dpldemo()
 
-The output should be (after the optimization by afternone)
+The output should be
 
 >     The running time for DPL training is : 10.29 s
 >     The running time for DPL testing is : 0.23 s
@@ -67,7 +56,7 @@ Actually the MATLAB version runs much faster as below.
 
 >     The running time for DPL training is : 3.27 s
 >     The running time for DPL testing is : 0.19 s
->     Recognition rate for DPL is : 0.976% 
+>     Recognition rate for DPL is : 0.976%
 
 ---
 
@@ -86,3 +75,7 @@ If you have problems with the julia code, please contact us at xiaofeng.qu.hk@ie
 + ~~Optimize the performance~~
 + NEW optimize the performance further
 + Proper packaging
+
+# Thanks
+
++ A thank you to [afternone](https://github.com/afternone), who optimized the julia code
