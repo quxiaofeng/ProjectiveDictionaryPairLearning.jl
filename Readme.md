@@ -1,18 +1,17 @@
-# DPL.jl
-### Projective Dictionary Pair Learning
+# ProjectiveDictionaryPairLearning.jl
 
-[![Build Status](https://travis-ci.org/quxiaofeng/DPL.jl.svg)](https://travis-ci.org/quxiaofeng/DPL.jl)
+[![Build Status](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl.svg)](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl)
 
 ## Installation
 
 ```julia
-Pkg.clone("git://github.com/quxiaofeng/DPL.jl.git")
+Pkg.clone("git://github.com/quxiaofeng/ProjectiveDictionaryPairLearning.jl.git")
 ```
 
 ## Usage
 
 ```julia
-using DPL
+using ProjectiveDictionaryPairLearning
 dpldemo()
 ```
 

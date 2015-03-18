@@ -13,8 +13,8 @@ notifications:
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia -e 'Pkg.clone("BinDeps"); Pkg.build("BinDeps")'
-  - julia -e 'Pkg.clone(pwd()); Pkg.build("DPL")'
-  - if [ $TRAVIS_JULIA_VERSION = "nightly" ]; then julia --check-bounds=yes --inline=no --code-coverage=user -e 'include(Pkg.dir("DPL", "test", "runtests.jl"))'; fi
-  - if [ $TRAVIS_JULIA_VERSION = "release" ]; then julia --check-bounds=yes -e 'Pkg.test("DPL")'; fi
+  - julia -e 'Pkg.clone(pwd()); Pkg.build("ProjectiveDictionaryPairLearning")'
+  - if [ $TRAVIS_JULIA_VERSION = "nightly" ]; then julia --check-bounds=yes --inline=no --code-coverage=user -e 'include(Pkg.dir("ProjectiveDictionaryPairLearning", "test", "runtests.jl"))'; fi
+  - if [ $TRAVIS_JULIA_VERSION = "release" ]; then julia --check-bounds=yes -e 'Pkg.test("ProjectiveDictionaryPairLearning")'; fi
 after_success:
-  - if [ $TRAVIS_JULIA_VERSION = "nightly" ]; then julia -e 'cd(Pkg.dir("DPL")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'; fi
+  - if [ $TRAVIS_JULIA_VERSION = "nightly" ]; then julia -e 'cd(Pkg.dir("ProjectiveDictionaryPairLearning")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'; fi

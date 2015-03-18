@@ -20,14 +20,14 @@
 #
 #  Usage:
 #
-#    Pkg.clone("git://github.com/quxiaofeng/DPL.jl.git")
-#    using DPL
+#    Pkg.clone("git://github.com/quxiaofeng/ProjectiveDictionaryPairLearning.jl.git")
+#    using ProjectiveDictionaryPairLearning
 #    dpldemo()
 #
 #
 # =========================================================================
 
-module DPL
+module ProjectiveDictionaryPairLearning
 
 using MAT # to load and save data
 using NumericExtensions # to optimize the performance

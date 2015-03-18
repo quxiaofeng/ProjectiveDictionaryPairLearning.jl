@@ -1,4 +1,4 @@
-using DPL
+using ProjectiveDictionaryPairLearning
 using MAT, NumericExtensions, Base.Test
 
 ###### Accelerating the normalization with testing
