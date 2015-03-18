@@ -1,4 +1,43 @@
-# PAPER
+# DPL.jl
+### Projective Dictionary Pair Learning
+
+[![Build Status](https://travis-ci.org/quxiaofeng/DPL.jl.svg)](https://travis-ci.org/quxiaofeng/DPL.jl)
+
+## Installation
+
+```julia
+Pkg.clone("https://github.com/quxiaofeng/DPL.jl")
+```
+
+## Usage
+
+```julia
+using DPL
+dpldemo()
+```
+
+The output should be
+
+>     The running time for DPL training is : 10.29 s
+>     The running time for DPL testing is : 0.23 s
+>     Recognition rate for DPL is : 0.976%
+
+### Comparison with MATLAB version
+
+Actually the MATLAB version runs much faster as below.
+
+>     The running time for DPL training is : 3.27 s
+>     The running time for DPL testing is : 0.19 s
+>     Recognition rate for DPL is : 0.976%
+
+## Dependencies
+
++ [NumericExtensions.jl](https://github.com/lindahua/NumericExtensions.jl)
++ [MAT.jl](https://github.com/simonster/MAT.jl)
+
+---
+
+## PAPER
 
 This code is for the paper:
 
@@ -7,13 +46,13 @@ This code is for the paper:
 > + From **“dictionary learning”** to **“dictionary pair learning”**!
 >
 
-## Authors' Pages
+### Authors' Pages
 
 + [Lei Zhang's page](http://www4.comp.polyu.edu.hk/~cslzhang/)
 
 + [Shuhang Gu's Page](https://sites.google.com/site/shuhanggu/home)
 
-## Downloads
+### Downloads
 
 + [Download The Paper](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_final.pdf)
 
@@ -21,9 +60,7 @@ This code is for the paper:
 
 + [Download The MATLAB Code](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_supp_final.pdf)
 
----
-
-# DATASET
+## DATASET
 
 The example feature dataset (YaleB_Jiang) used in this code is from Dr. Zhuolin Jiang: http://www.umiacs.umd.edu/~zhuolin/projectlcksvd.html.
 
@@ -33,42 +70,17 @@ For experiment on UCF50, we used the Action bank feature provided in: http://www
 
 ---
 
-# USAGE
-
-    Pkg.clone("https://github.com/quxiaofeng/DPL.jl")
-    using DPL
-    dpldemo()
-
-## Example
-
-    using DPL
-    dpldemo()
-
-The output should be
-
->     The running time for DPL training is : 10.29 s
->     The running time for DPL testing is : 0.23 s
->     Recognition rate for DPL is : 0.976%
-
-## Comparison with MATLAB version
-
-Actually the MATLAB version runs much faster as below.
-
->     The running time for DPL training is : 3.27 s
->     The running time for DPL testing is : 0.19 s
->     Recognition rate for DPL is : 0.976%
-
----
-
-# CONTACT
+## CONTACT
 
 If you have problems with the paper, the algorithm or the original matlab code, please contact us at shuhanggu@gmail.com or cslzhang@comp.polyu.edu.hk.
 
 If you have problems with the julia code, please contact us at xiaofeng.qu.hk@ieee.org.
 
----
+## Thanks
 
-# TODO
++ A thank you to [afternone](https://github.com/afternone), who optimized the julia code
+
+## TODO
 
 + ~~Add `test`~~
 + NEW add more tests
@@ -76,6 +88,3 @@ If you have problems with the julia code, please contact us at xiaofeng.qu.hk@ie
 + NEW optimize the performance further
 + Proper packaging
 
-# Thanks
-
-+ A thank you to [afternone](https://github.com/afternone), who optimized the julia code
