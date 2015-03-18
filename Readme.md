@@ -20,7 +20,7 @@ The output should be
 
 >     The running time for DPL training is : 10.29 s
 >     The running time for DPL testing is : 0.23 s
->     Recognition rate for DPL is : 0.976%
+>     Recognition rate for DPL is : 97.6%
 
 ### Comparison with MATLAB version
 
@@ -28,7 +28,7 @@ Actually the MATLAB version runs much faster as below.
 
 >     The running time for DPL training is : 3.27 s
 >     The running time for DPL testing is : 0.19 s
->     Recognition rate for DPL is : 0.976%
+>     Recognition rate for DPL is : 0.976
 
 ## Dependencies
 
