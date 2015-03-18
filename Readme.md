@@ -5,7 +5,7 @@ This code is for the paper:
 > + Shuhang Gu, Lei Zhang, Wangmeng Zuo, and Xiangchu Feng, ["Projective Dictionary Pair Learning for Pattern Classification,"](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_final.pdf) In NIPS 2014.
 >
 > + From **“dictionary learning”** to **“dictionary pair learning”**!
-> 
+>
 
 ## Authors' Pages
 
@@ -37,6 +37,12 @@ For experiment on UCF50, we used the Action bank feature provided in: http://www
 
     cd("Drive:\\Path\\to\\the\\src")
     include("DPL.jl")
+    using DPL
+    dpldemo()
+
+or
+
+    Pkg.clone("https://github.com/quxiaofeng/DPL.jl")
     using DPL
     dpldemo()
 
