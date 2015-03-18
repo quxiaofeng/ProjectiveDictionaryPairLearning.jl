@@ -1,4 +1,4 @@
-include("UpdateA.jl")
+include("UpdateA!.jl")
 
 # return inv(τ*A*A' + λ*B*B' + γ*I)
 function getinv(τ, λ, γ, A, B)
@@ -17,20 +17,18 @@ function getinv(τ, λ, γ, A, B)
     inv(C)
 end
 
-
 function Initialization(Data, Label, DictSize, τ, λ, γ)
-	# In this initialization function, we do the following things:
-	# 1. Random initialization of dictionary pair D and P for each class
-	# 2. Compute the class-specific inverse matrix used in Eq. (10)
-	# 3. Compute matrix class-specific code matrix A by Eq. (8)
-	#    with the random initialized D and P
-	#
-	# The randn seeds are set to make sure the results in our paper are
-	# reproducible. The randn seed setting can be removed, our algorithm is
-	# not sensitive to the initialization of D and P. In most cases, different
-	# initialization will lead to the same recognition accuracy on a wide range
-	# of testing databases.
-
+    # In this initialization function, we do the following things:
+    # 1. Random initialization of dictionary pair D and P for each class
+    # 2. Compute the class-specific inverse matrix used in Eq. (10)
+    # 3. Compute matrix class-specific code matrix A by Eq. (8)
+    #    with the random initialized D and P
+    #
+    # The randn seeds are set to make sure the results in our paper are
+    # reproducible. The randn seed setting can be removed, our algorithm is
+    # not sensitive to the initialization of D and P. In most cases, different
+    # initialization will lead to the same recognition accuracy on a wide range
+    # of testing databases.
     ClassNum = maximum(Label)
     Dim = size(Data, 1)
 
@@ -58,7 +56,7 @@ function Initialization(Data, Label, DictSize, τ, λ, γ)
         @inbounds DataInvMat[i] = getinv(τ, λ, γ, TempData, TempDataC)
     end
 
-    updateA!(CoefMat, DictMat, DataMat, P, τ, DictSize)
+    UpdateA!(CoefMat, DictMat, DataMat, P, τ, DictSize)
 
     DataMat, DictMat, P, DataInvMat, CoefMat, ClassNum, Dim
 end

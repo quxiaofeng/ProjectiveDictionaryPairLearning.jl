@@ -11,18 +11,19 @@
 #       Email: xiaofeng.qu.hk@ieee.org
 #       Site: http://www.quxiaofeng.me
 #       March, 2015.
+#
+#
 # =========================================================================
 
+
 # =========================================================================
+#
 #  Usage:
 #
-#       dpldemo();
-#
-#
-#
-#
-#
-#
+#       cd("Drive:\\path\\to\\the\\src")
+#       include("DPL.jl")
+#       using DPL
+#       dpldemo()
 #
 #
 # =========================================================================
@@ -30,7 +31,7 @@
 module DPL
 
 using MAT # to load and save data
-using NumericExtensions
+using NumericExtensions # to optimize the performance
 
 include("TrainDPL.jl")
 include("ClassificationDPL.jl")
@@ -39,15 +40,16 @@ export dpldemo, TrainDPL, ClassificationDPL
 
 function dpldemo()
     # Load training and testing data
-    data = matread("YaleB_Jiang.mat");
+    data = matread("YaleB_Jiang.mat")
     TrData, TrLabel = data["TrData"], data["TrLabel"]
     TtData, TtLabel = data["TtData"], data["TtLabel"]
+
     # Column normalization
     normalize!(TrData, 2, 1)
     normalize!(TtData, 2, 1)
 
-    TrLabel = int(TrLabel)
-    TtLabel = int(TtLabel)
+    TrLabel  = int(TrLabel)
+    TtLabel  = int(TtLabel)
 
     # Parameter setting
     DictSize = 30
@@ -55,7 +57,7 @@ function dpldemo()
     λ = 0.003
     γ = 0.0001
 
-    # DPL trainig
+    # DPL training
     tic()
     DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, τ, λ, γ)
     TrTime = toq()
@@ -70,6 +72,6 @@ function dpldemo()
     @printf("\nThe running time for DPL training is : %.02f s ", TrTime)
     @printf("\nThe running time for DPL testing is : %.02f s ", TtTime)
     @printf("\nRecognition rate for DPL is : %.03f%% \n", Accuracy)
-end
 
+    end
 end
