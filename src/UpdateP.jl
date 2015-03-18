@@ -1,12 +1,9 @@
-function UpdateP(Coef, DataInvMat, P_Mat, DataMat, tau)
-# Update P by Eq. (10)
-
-P_Mat = Any[];
-ClassNum = length(Coef);
-for i = 1:ClassNum
-     push!(P_Mat, (tau * Coef[i] * DataMat[i]') * DataInvMat[i]);
-end
-
-P_Mat
+function updateP!(P, CoefMat, DataInvMat, DataMat, τ)
+	# Update P by Eq. (10)
+    for i=1:length(P)
+        @inbounds A = CoefMat[i]*DataMat[i]'
+        scale!(A, τ)
+        @inbounds P[i] = A*DataInvMat[i]
+    end
 end
 

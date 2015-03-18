@@ -1,14 +1,15 @@
-function UpdateA(DictMat, DataMat, P_Mat, tau, DictSize)
-# Update A by Eq. (8)
+include("diagadd.jl")
 
-ClassNum = length(DataMat);
-I_Mat    = eye(DictSize);
-CoefMat  = Any[];
-for i = 1:ClassNum
-    TempDict = DictMat[i];
-    TempData = DataMat[i];
-    push!(CoefMat, (TempDict' * TempDict + tau * I_Mat) \ (TempDict' * TempData + tau * P_Mat[i] * TempData));
-end
-
-CoefMat
+function updateA!(CoefMat, DictMat, DataMat, P, τ, DictSize)
+	# Update A by Eq. (8)
+    for i=1:length(CoefMat)
+        @inbounds TempDict = DictMat[i]
+        @inbounds TempData = DataMat[i]
+        A = TempDict'*TempDict
+        B = TempDict'*TempData
+        @inbounds C = P[i]*TempData
+        diagadd!(A, τ)
+        fma!(B, C, τ)
+        @inbounds CoefMat[i] = A\B
+    end
 end
