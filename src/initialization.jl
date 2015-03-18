@@ -29,17 +29,17 @@ function initialization(Data, Label, DictSize, τ, λ, γ)
     # not sensitive to the initialization of D and P. In most cases, different
     # initialization will lead to the same recognition accuracy on a wide range
     # of testing databases.
-    ClassNum = maximum(Label)
-    Dim = size(Data, 1)
+    ClassNum   = maximum(Label)
+    Dim        = size(Data, 1)
 
-    DataMat = Array(Any, ClassNum)
-    DictMat = Array(Any, ClassNum)
-    P = Array(Any, ClassNum)
+    DataMat    = Array(Any, ClassNum)
+    DictMat    = Array(Any, ClassNum)
+    P          = Array(Any, ClassNum)
     DataInvMat = Array(Any, ClassNum)
-    CoefMat = Array(Any, ClassNum)
+    CoefMat    = Array(Any, ClassNum)
 
     for i=1:ClassNum
-        @inbounds TempData = Data[:, find(Label .== i)]
+        @inbounds TempData   = Data[:, find(Label .== i)]
         @inbounds DataMat[i] = TempData
 
         srand(i)
@@ -50,7 +50,7 @@ function initialization(Data, Label, DictSize, τ, λ, γ)
         srand(2i)
         TempRand = randn(Dim, DictSize)
         normalize!(TempRand, 2, 1)
-        @inbounds P[i] = TempRand'
+        @inbounds P[i]       = TempRand'
 
         @inbounds TempDataC = Data[:, find(Label .!=i)]
         @inbounds DataInvMat[i] = getinv(τ, λ, γ, TempData, TempDataC)
