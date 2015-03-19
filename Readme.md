@@ -1,14 +1,14 @@
-# ProjectiveDictionaryPairLearning.jl
+# ProjectiveDictionaryPairLearning.jl (previous DPL.jl)
 
 [![Build Status](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl.svg)](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl)
 
 ## Installation
 
 ```julia
-Pkg.clone("git://github.com/quxiaofeng/ProjectiveDictionaryPairLearning.jl.git")
+Pkg.add("ProjectiveDictionaryPairLearning")
 ```
 
-## Usage
+## Demo
 
 ```julia
 using ProjectiveDictionaryPairLearning
@@ -28,6 +28,36 @@ Actually the MATLAB version runs much faster as below.
 >     The running time for DPL training is : 3.27 s
 >     The running time for DPL testing is : 0.19 s
 >     Recognition rate for DPL is : 0.976
+
+## Usage
+
+### Prepare Data and Labels
+
+> Prepare Training Data `TrData`:   Column Vectors (Should be `normalize!`d)
+>         Training Label `TrLabel`: Class Label Integers in A Row
+>         Testing Data `TtData`:    Column Vectors (Should be `normalize!`d also)
+>         Testing Label `TtLabel`:  Class Label Integers in A Row
+
+### Set Parameters
+
+```julia
+DictSize = 30
+τ = 0.05
+λ = 0.003
+γ = 0.0001
+```
+
+### DPL Training
+
+```julia
+DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, τ, λ, γ)
+```
+
+### DPL Testing
+
+```julia
+PredictLabel, Error = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize)
+```
 
 ## Dependencies
 

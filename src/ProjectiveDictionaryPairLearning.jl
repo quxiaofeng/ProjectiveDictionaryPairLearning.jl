@@ -18,9 +18,9 @@
 
 # =========================================================================
 #
-#  Usage:
+#  Demo:
 #
-#    Pkg.clone("git://github.com/quxiaofeng/ProjectiveDictionaryPairLearning.jl.git")
+#    Pkg.add("ProjectiveDictionaryPairLearning")
 #    using ProjectiveDictionaryPairLearning
 #    dpldemo()
 #
