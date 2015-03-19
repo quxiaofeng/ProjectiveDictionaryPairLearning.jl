@@ -112,8 +112,8 @@ If you have problems with the julia code, please contact us at xiaofeng.qu.hk@ie
 ## TODO
 
 + ~~Add `test`~~
-+ NEW add more tests
++ *NEW* add more tests
 + ~~Optimize the performance~~
-+ NEW optimize the performance further
-+ Proper packaging
++ *NEW* optimize the performance further
++ ~~~Proper packaging~~~
 
