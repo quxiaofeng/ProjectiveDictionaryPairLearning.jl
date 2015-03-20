@@ -1,4 +1,6 @@
-# ProjectiveDictionaryPairLearning.jl (previous DPL.jl)
+# ProjectiveDictionaryPairLearning.jl
+
+### previous DPL.jl
 
 [![Build Status](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl.svg)](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl)
 
@@ -25,8 +27,8 @@ The output should be
 
 Actually the MATLAB version runs much faster as below.
 
->     The running time for DPL training is : 3.27 s
->     The running time for DPL testing is : 0.19 s
+>     The running time for DPL training is : 3.12 s
+>     The running time for DPL testing is : 0.17 s
 >     Recognition rate for DPL is : 0.976
 
 ## Usage
