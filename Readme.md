@@ -1,6 +1,6 @@
 # ProjectiveDictionaryPairLearning.jl
 
-### previous DPL.jl
+#### previous DPL.jl
 
 [![Build Status](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl.svg)](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl)
 
@@ -31,14 +31,14 @@ Actually the MATLAB version runs much faster as below.
 >     The running time for DPL testing is : 0.17 s
 >     Recognition rate for DPL is : 0.976
 
-## Usage
+## Usage 
 
 ### Prepare Data and Labels
 
-> Prepare Training Data `TrData`:   Column Vectors (Should be `normalize!`d)
->         Training Label `TrLabel`: Class Label Integers in A Row
->         Testing Data `TtData`:    Column Vectors (Should be `normalize!`d also)
->         Testing Label `TtLabel`:  Class Label Integers in A Row
++ Training Data `TrData`:   Column Vectors (Should be `normalize!`d)
++ Training Label `TrLabel`: Class Label Integers in A Row
++ Testing Data `TtData`:    Column Vectors (Should also be `normalize!`d )
++ Testing Label `TtLabel`:  Class Label Integers in A Row
 
 ### Set Parameters
 
@@ -60,6 +60,7 @@ DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, τ, λ, γ)
 ```julia
 PredictLabel, Error = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize)
 ```
+#### Ref [`dpldemo()` in `ProjectiveDictionaryPairLearning.jl`](https://github.com/quxiaofeng/ProjectiveDictionaryPairLearning.jl/blob/master/src/ProjectiveDictionaryPairLearning.jl)
 
 ## Dependencies
 
@@ -80,15 +81,12 @@ This code is for the paper:
 ### Authors' Pages
 
 + [Lei Zhang's page](http://www4.comp.polyu.edu.hk/~cslzhang/)
-
 + [Shuhang Gu's Page](https://sites.google.com/site/shuhanggu/home)
 
 ### Downloads
 
 + [Download The Paper](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_final.pdf)
-
 + [Download The Supplement Material](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_supp_final.pdf)
-
 + [Download The MATLAB Code](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_supp_final.pdf)
 
 ## DATASET
