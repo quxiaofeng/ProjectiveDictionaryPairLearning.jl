@@ -16,5 +16,5 @@ function ClassificationDPL(TtData, DictMat, EncoderMat, DictSize)
     Distance, PredictInd = findmin(Error, 1)
     PredictLabel = [ind2sub(size(Error), PredictInd[i])[1] for i = 1:size(PredictInd, 2)]
 
-    PredictLabel, Error
+    PredictLabel, Error, Distance
 end

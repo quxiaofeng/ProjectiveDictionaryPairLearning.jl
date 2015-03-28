@@ -58,9 +58,20 @@ DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, τ, λ, γ)
 ### DPL Testing
 
 ```julia
-PredictLabel, Error = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize)
+PredictLabel, Error, Distance = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize)
 ```
-#### Ref [`dpldemo()` in `ProjectiveDictionaryPairLearning.jl`](https://github.com/quxiaofeng/ProjectiveDictionaryPairLearning.jl/blob/master/src/ProjectiveDictionaryPairLearning.jl)
+#### Ref: [`dpldemo()` in `ProjectiveDictionaryPairLearning.jl`](https://github.com/quxiaofeng/ProjectiveDictionaryPairLearning.jl/blob/master/src/ProjectiveDictionaryPairLearning.jl)
+
+## Advanced Usage
+
+Inner functions have been exposed to use.
+
++ `initialization.jl`: `DataMat, D, P, DataInvMat, A = initialization(Data, Label, DictSize, τ, λ, γ)`
++ `updateA!.jl`: `updateA!(A, D, DataMat, P, τ, DictSize)`
++ `updateD!.jl`: `updateD!(D, A, DataMat)`
++ `updateP!.jl`: `updateP!(P, A, DataInvMat, DataMat, τ)`
+
+### Ref: [`TrainDPL.jl` in `ProjectiveDictionaryPairLearning.jl`](https://github.com/quxiaofeng/ProjectiveDictionaryPairLearning.jl/blob/master/src/TrainDPL.jl)
 
 ## Dependencies
 

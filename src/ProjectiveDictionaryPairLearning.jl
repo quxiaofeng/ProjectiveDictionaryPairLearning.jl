@@ -35,7 +35,7 @@ using NumericExtensions # to optimize the performance
 include("TrainDPL.jl")
 include("ClassificationDPL.jl")
 
-export dpldemo, TrainDPL, ClassificationDPL
+export dpldemo, TrainDPL, ClassificationDPL, updateA!, updateD!, updateP!, initialization
 
 function dpldemo()
     # Load training and testing data
@@ -64,7 +64,7 @@ function dpldemo()
 
     # DPL testing
     tic()
-    PredictLabel, Error = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize)
+    PredictLabel, Error, Distance = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize)
     TtTime = toq()
 
     # Show accuracy and time
