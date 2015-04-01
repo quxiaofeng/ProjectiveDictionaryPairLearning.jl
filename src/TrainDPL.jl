@@ -9,7 +9,7 @@ function TrainDPL(Data, Label, DictSize, τ, λ, γ, DEMO=false)
     # This is the DPL training function
 
     # Initialize D and P, compute the inverse matrix used in Eq. (10), update A for one time
-    DataMat, D, P, DataInvMat, A = initialization(Data, Label, DictSize, τ, λ, γDEMO)
+    DataMat, D, P, DataInvMat, A = initialization(Data, Label, DictSize, τ, λ, γ, DEMO)
 
     # Alternatively update P, D and A
     for i = 1:20
