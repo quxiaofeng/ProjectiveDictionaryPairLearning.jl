@@ -17,7 +17,7 @@ function getinv(τ, λ, γ, A, B)
     inv(C)
 end
 
-function initialization(Data, Label, DictSize, τ, λ, γ)
+function initialization(Data, Label, DictSize, τ, λ, γ, DEMO=false)
     # In this initialization function, we do the following things:
     # 1. Random initialization of dictionary pair D and P for each class
     # 2. Compute the class-specific inverse matrix used in Eq. (10)
@@ -42,12 +42,12 @@ function initialization(Data, Label, DictSize, τ, λ, γ)
         @inbounds TempData   = Data[:, find(Label .== i)]
         @inbounds DataMat[i] = TempData
 
-        srand(i)
+        DEMO && srand(i)
         TempRand = randn(Dim, DictSize)
         normalize!(TempRand, 2, 1)
         @inbounds DictMat[i] = TempRand
 
-        srand(2i)
+        DEMO && srand(2i)
         TempRand = randn(Dim, DictSize)
         normalize!(TempRand, 2, 1)
         @inbounds P[i]       = TempRand'

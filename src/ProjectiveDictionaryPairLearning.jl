@@ -59,12 +59,12 @@ function dpldemo()
 
     # DPL training
     tic()
-    DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, τ, λ, γ)
+    DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, τ, λ, γ, DEMO=true)
     TrTime = toq()
 
     # DPL testing
     tic()
-    PredictLabel, Error, Distance = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize)
+    PredictLabel, Error = ClassificationDPL(TtData, DictMat, EncoderMat, DictSize)
     TtTime = toq()
 
     # Show accuracy and time
