@@ -58,8 +58,9 @@ function dpldemo()
     γ = 0.0001
 
     # DPL training
+    DEMO = true
     tic()
-    DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, τ, λ, γ, DEMO=true)
+    DictMat, EncoderMat = TrainDPL(TrData, TrLabel, DictSize, τ, λ, γ, DEMO)
     TrTime = toq()
 
     # DPL testing
