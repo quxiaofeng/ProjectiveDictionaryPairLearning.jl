@@ -17,11 +17,11 @@ using ProjectiveDictionaryPairLearning
 dpldemo()
 ```
 
-The output should be
+The output should be something similar to this
 
->     The running time for DPL training is : 10.29 s
+>     The running time for DPL training is : 6.79 s
 >     The running time for DPL testing is : 0.23 s
->     Recognition rate for DPL is : 97.6%
+>     Recognition rate for DPL is : 97.579%
 
 ### Comparison with MATLAB version
 
