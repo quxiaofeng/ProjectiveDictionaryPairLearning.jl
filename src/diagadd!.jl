@@ -1,4 +1,4 @@
-function diagadd!(A, c)
+function diagadd!(A::Matrix{Float64}, c::Float64)
     # A <- A + c*I
     Dim = minimum(size(A))
     for i=1:Dim

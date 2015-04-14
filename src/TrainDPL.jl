@@ -5,7 +5,7 @@ include(joinpath(dirname(@__FILE__), "updateP!.jl"))
 include(joinpath(dirname(@__FILE__), "updateD!.jl"))
 include(joinpath(dirname(@__FILE__), "updateA!.jl"))
 
-function TrainDPL(Data, Label, DictSize, τ, λ, γ, DEMO=false)
+function TrainDPL(Data::Matrix{Float64}, Label::Matrix{Int64}, DictSize::Int64, τ::Float64, λ::Float64, γ::Float64, DEMO=false)
     # This is the DPL training function
 
     # Initialize D and P, compute the inverse matrix used in Eq. (10), update A for one time

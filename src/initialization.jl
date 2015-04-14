@@ -1,7 +1,7 @@
 include(joinpath(dirname(@__FILE__), "updateA!.jl"))
 
 # return inv(τ*A*A' + λ*B*B' + γ*I)
-function getinv(τ, λ, γ, A, B)
+function getinv(τ::Float64, λ::Float64, γ::Float64, A::Matrix{Float64}, B::Matrix{Float64})
     C = A*A'
     D = B*B'
     Dim = size(C, 1)
@@ -17,7 +17,7 @@ function getinv(τ, λ, γ, A, B)
     inv(C)
 end
 
-function initialization(Data, Label, DictSize, τ, λ, γ, DEMO=false)
+function initialization(Data::Matrix{Float64}, Label::Matrix{Int64}, DictSize::Int64, τ::Float64, λ::Float64, γ::Float64, DEMO=false)
     # In this initialization function, we do the following things:
     # 1. Random initialization of dictionary pair D and P for each class
     # 2. Compute the class-specific inverse matrix used in Eq. (10)

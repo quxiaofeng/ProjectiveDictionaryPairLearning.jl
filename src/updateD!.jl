@@ -1,7 +1,7 @@
 include("normcol_lessequal.jl")
 include("diagadd!.jl")
 
-function add_sub!(aMat, bMat, cMat)
+function add_sub!(aMat::Matrix{Float64}, bMat::Matrix{Float64}, cMat::Matrix{Float64})
    # aMat <- aMat + bMat - cMat
     Dim = size(aMat)
     for j=1:Dim[2], i=1:Dim[1]
@@ -9,25 +9,25 @@ function add_sub!(aMat, bMat, cMat)
     end
 end
 
-function updateD!(D, A, DataMat)
+function updateD!(D::Array{Any,1}, A::Array{Any,1}, DataMat::Array{Any,1})
    # Update D by Eq. (12)
     for i=1:length(D)
-        @inbounds TempCoef = A[i]
-        @inbounds TempData = DataMat[i]
-        ρ = 1.
-        rate_ρ = 1.2
-        @inbounds TempS = D[i]
+        @inbounds TempCoef::Matrix{Float64} = A[i]
+        @inbounds TempData::Matrix{Float64} = DataMat[i]
+        ρ::Float64 = 1.
+        rate_ρ::Float64 = 1.2
+        @inbounds TempS::Matrix{Float64} = D[i]
         TempT = zeros(TempS)
-        @inbounds preD = D[i]
+        @inbounds preD::Matrix{Float64} = D[i]
         Iter = 1
         ERROR = 1.
         while ERROR > 1e-8 && Iter < 100
 
-            tempMat = TempData*TempCoef'
+            tempMat::Matrix{Float64} = TempData*TempCoef'
             fma!(tempMat, TempS-TempT, ρ) # tempMat <- tempMat + ρ(TempS - TempT)
-            tempMatCoef = TempCoef*TempCoef'
+            tempMatCoef::Matrix{Float64} = TempCoef*TempCoef'
             diagadd!(tempMatCoef, ρ)
-            TempD = tempMat/tempMatCoef
+            TempD::Matrix{Float64} = tempMat/tempMatCoef
 
             TempS = normcol_lessequal(TempD+TempT)
             add_sub!(TempT, TempD, TempS) # TemP <- TemP + (TempD-TempS)

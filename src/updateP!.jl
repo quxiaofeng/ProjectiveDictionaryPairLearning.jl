@@ -1,4 +1,4 @@
-function updateP!(P, A, DataInvMat, DataMat, τ)
+function updateP!(P::Array{Any,1}, A::Array{Any,1}, DataInvMat::Array{Any,1}, DataMat::Array{Any,1}, τ::Float64)
 # Update P by Eq. (10)
 
     for i=1:length(P)
