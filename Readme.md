@@ -31,7 +31,7 @@ Actually the MATLAB version runs much faster as below.
 >     The running time for DPL testing is : 0.17 s
 >     Recognition rate for DPL is : 0.976
 
-## Usage 
+## Usage
 
 ### Prepare Data and Labels
 
