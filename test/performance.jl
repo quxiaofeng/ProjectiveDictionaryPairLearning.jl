@@ -59,3 +59,5 @@ ErrorSubtractTime = toq()
 @test_approx_eq(ErrorMATLAB, ErrorSubtract)
 @test ErrorSubtractTime < ErrorMATLABTime
 
+
+println("Finished performance tests!")
