@@ -16,6 +16,9 @@ function TrainDPL(Data::Matrix{Float64}, Label::Matrix{Int64}, DictSize::Int64, 
         updateP!(P, A, DataInvMat, DataMat, τ)
         updateD!(D, A, DataMat)
         updateA!(A, D, DataMat, P, τ, DictSize)
+        if DEMO
+            println("Training ... iteration $i finished.")
+        end
     end
 
     EncoderMat = zeros(size(P[1], 1) * size(P, 1), size(P[1], 2))
