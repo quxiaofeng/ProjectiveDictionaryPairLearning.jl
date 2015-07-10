@@ -1,20 +1,12 @@
 language: julia
-os:
-  - osx
-  - linux
 julia:
   - release
   - nightly
-matrix:
-  allow_failures:
-    - julia: nightly
 notifications:
   email: false
+before_install:
+  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 script:
-    - julia -e 'Pkg.init(); run(`ln -s $(pwd()) $(Pkg.dir("ProjectiveDictionaryPairLearning"))`)'
-    - julia -e 'Pkg.pin("ProjectiveDictionaryPairLearning"); Pkg.resolve()'
-    - julia -e 'Pkg.clone("NumericExtensions"); Pkg.checkout("NumericExtensions")'
-    - if [ $TRAVIS_JULIA_VERSION = "nightly" ]; then julia --inline=no --code-coverage=user -e 'Pkg.test("ProjectiveDictionaryPairLearning")'; fi
-    - if [ $TRAVIS_JULIA_VERSION = "release" ]; then julia -e 'Pkg.test("ProjectiveDictionaryPairLearning")'; fi
+  - julia --check-bounds=yes -e 'Pkg.clone(pwd()); Pkg.test("ProjectiveDictionaryPairLearning"; coverage=true)'
 after_success:
-    - if [ $TRAVIS_JULIA_VERSION = "nightly" ]; then julia -e 'cd(Pkg.dir("ProjectiveDictionaryPairLearning")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'; fi
+  - julia -e 'cd(Pkg.dir("ProjectiveDictionaryPairLearning")); using Coverage; Coveralls.submit(Coveralls.process_folder())'
