@@ -11,7 +11,7 @@ matrix:
 notifications:
   email: false
 script:
-    - julia -e 'Pkg.add("ProjectiveDictionaryPairLearning"); Pkg.checkout("ProjectiveDictionaryPairLearning")'
+    - julia -e 'Pkg.init(); run(`ln -s $(pwd()) $(Pkg.dir("ProjectiveDictionaryPairLearning"))`)
     - julia -e 'Pkg.pin("ProjectiveDictionaryPairLearning"); Pkg.resolve()'
     - if [ $TRAVIS_JULIA_VERSION = "nightly" ]; then julia --check-bounds=yes --inline=no --code-coverage=user -e 'Pkg.test("ProjectiveDictionaryPairLearning")'; fi
     - if [ $TRAVIS_JULIA_VERSION = "release" ]; then julia --check-bounds=yes -e 'Pkg.test("ProjectiveDictionaryPairLearning")'; fi
