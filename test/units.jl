@@ -17,14 +17,16 @@ using MAT, NumericExtensions, Base.Test
 matFileName = "testDataForTrainDpl.mat"
 println("matFileName: $matFileName.")
 
+tic()
 data = matread(joinpath(dirname(@__FILE__), matFileName))
 DictMat, EncoderMat, TrData, TrLabel = data["DictMat"], data["EncoderMat"], data["TrData"], data["TrLabel"]
 DictSize, tau, lambda, gamma = data["DictSize"], data["tau"], data["lambda"], data["gamma"]
-println("Data loaded.")
+println("Data loaded in $(toq())s")
 
+tic()
 DEMO = true
 TestDictMat, TestEncoderMat = TrainDPL(TrData, TrLabel, DictSize, tau, lambda, gamma, DEMO)
-println("TrainDPL passed.")
+println("TrainDPL passed in $(toq())s")
 
 for i = 1:length(DictSize)
     @test_approx_eq(DictMat[i], TestDictMat[i])
