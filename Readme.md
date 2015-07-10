@@ -2,7 +2,7 @@
 
 #### previous DPL.jl
 
-[![Build Status](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl.svg)](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl)
+[![Build Status](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl.svg)](https://travis-ci.org/quxiaofeng/ProjectiveDictionaryPairLearning.jl) [![Coverage Status](https://coveralls.io/repos/quxiaofeng/ProjectiveDictionaryPairLearning.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/quxiaofeng/ProjectiveDictionaryPairLearning.jl?branch=master)
 
 ## Installation
 
