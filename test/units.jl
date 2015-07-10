@@ -26,3 +26,5 @@ for i = 1:length(DictSize)
     @test_approx_eq(DictMat[i], TestDictMat[i])
 end
 @test_approx_eq(EncoderMat, TestEncoderMat)
+
+println("Finished unit tests!")
