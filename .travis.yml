@@ -6,6 +6,7 @@ notifications:
   email: false
 before_install:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+  - julia -e 'Pkg.clone("NumericExtensions")'
 script:
   - julia --check-bounds=yes -e 'Pkg.clone(pwd()); Pkg.test("ProjectiveDictionaryPairLearning"; coverage=true)'
 after_success:
