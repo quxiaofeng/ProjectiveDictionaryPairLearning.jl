@@ -17,8 +17,8 @@ normalizeTime = toq()
 @test_approx_eq(exampleMat, exampleResult)
 @test normalizeTime < normcol_equalTime
 
-println("normcol_equalTime : $normcol_equalTime"s)
-println("normalizeTime     : $normalizeTime"s)
+println("normcol_equalTime : $normcol_equalTime s")
+println("normalizeTime     : $normalizeTime s")
 
 ###### Accelerating the Class-specific reconstruction error calculation
 # load TtData, DictMat, EncoderMat, DictSize
