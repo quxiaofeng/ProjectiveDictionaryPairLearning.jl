@@ -1,4 +1,4 @@
-using ProjectiveDictionaryPairLearning
+import ProjectiveDictionaryPairLearning
 using MAT, NumericExtensions, Base.Test
 
 ###### Testing TrainDPL
