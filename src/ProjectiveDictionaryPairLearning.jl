@@ -35,7 +35,7 @@ using NumericExtensions # to optimize the performance
 include("TrainDPL.jl")
 include("ClassificationDPL.jl")
 
-export dpldemo, TrainDPL, ClassificationDPL, updateA!, updateD!, updateP!, initialization
+export dpldemo, TrainDPL, ClassificationDPL, updateA!, updateD!, updateP!, initialization, normcol_lessequal
 
 function dpldemo()
     # Load training and testing data
