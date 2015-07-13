@@ -74,5 +74,6 @@ function dpldemo()
     @printf("\nThe running time for DPL testing is : %.02f s ", TtTime)
     @printf("\nRecognition rate for DPL is : %.03f%% \n", Accuracy * 100.0)
 
+    Accuracy
     end
 end

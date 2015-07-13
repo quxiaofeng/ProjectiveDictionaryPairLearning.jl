@@ -1,3 +1,4 @@
+using NumericExtensions
 # solve the proximal problem
 # matout = argmin||matout-matin||_F^2, s.t. matout(:,i)<=1
 function normcol_lessequal(matin::Matrix{Float64})
