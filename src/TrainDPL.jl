@@ -1,5 +1,3 @@
-using NumericExtensions
-
 include(joinpath(dirname(@__FILE__), "initialization.jl"))
 include(joinpath(dirname(@__FILE__), "updateP!.jl"))
 include(joinpath(dirname(@__FILE__), "updateD!.jl"))

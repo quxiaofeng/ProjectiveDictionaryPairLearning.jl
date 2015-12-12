@@ -30,7 +30,6 @@
 module ProjectiveDictionaryPairLearning
 
 using MAT # to load and save data
-using NumericExtensions # to optimize the performance
 
 include("TrainDPL.jl")
 include("ClassificationDPL.jl")

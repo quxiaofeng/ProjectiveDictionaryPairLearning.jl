@@ -1,5 +1,3 @@
-using NumericExtensions
-
 function ClassificationDPL(TtData::Matrix{Float64}, DictMat::Array{Any,1}, EncoderMat::Matrix{Float64}, DictSize::Int64)
 
     # Projective representation coefficients estimation
