@@ -33,7 +33,7 @@ using MAT # to load and save data
 
 include("TrainDPL.jl")
 include("ClassificationDPL.jl")
-include("normcol_equal")
+include("normcol_equal.jl")
 
 export dpldemo, TrainDPL, ClassificationDPL, updateA!, updateD!, updateP!, initialization, normcol_lessequal, normcol_equal
 
