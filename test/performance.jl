@@ -10,15 +10,15 @@ tic()
 exampleResult = normcol_equal(exampleMat)
 normcol_equalTime = toq()
 
-tic()
-normalize!(exampleMat, 2 ,1)
-normalizeTime = toq()
+# tic()
+# normalize!(exampleMat, 2 ,1)
+# normalizeTime = toq()
 
-@test_approx_eq(exampleMat, exampleResult)
-@test normalizeTime < normcol_equalTime
+# @test_approx_eq(exampleMat, exampleResult)
+# @test normalizeTime < normcol_equalTime
 
-println("normcol_equalTime : $normcol_equalTime s")
-println("normalizeTime     : $normalizeTime s")
+# println("normcol_equalTime : $normcol_equalTime s")
+# println("normalizeTime     : $normalizeTime s")
 
 ###### Accelerating the Class-specific reconstruction error calculation
 # load TtData, DictMat, EncoderMat, DictSize
@@ -51,7 +51,7 @@ tic()
 # Class-specific reconstruction error calculation
 for i=1:ClassNum
     @inbounds tempMat = DictMat[i] * PredictCoef[(i-1)*DictSize+1:i*DictSize, :]
-    subtract!(tempMat, TtData)
+    tempMat -= TtData
     @inbounds ErrorSubtract[i,:] = sumsq(tempMat, 1)
 end
 ErrorSubtractTime = toq()
