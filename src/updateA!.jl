@@ -10,7 +10,7 @@ function updateA!(A::Array{Any,1}, D::Array{Any,1}, DataMat::Array{Any,1}, P::Ar
         tempDictDataCoef::Matrix{Float64}   = TempDict' * TempData
         @inbounds C::Matrix{Float64}        = P[i] * TempData
         diagadd!(tempDictCoef, τ)
-        fma!(tempDictDataCoef, C, τ)
+        tempDictDataCoef += C .* τ
         @inbounds A[i]                      = tempDictCoef \ tempDictDataCoef
     end
 end

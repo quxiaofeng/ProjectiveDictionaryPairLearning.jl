@@ -24,7 +24,7 @@ function updateD!(D::Array{Any,1}, A::Array{Any,1}, DataMat::Array{Any,1})
         while ERROR > 1e-8 && Iter < 100
 
             tempMat::Matrix{Float64} = TempData*TempCoef'
-            fma!(tempMat, TempS-TempT, ρ) # tempMat <- tempMat + ρ(TempS - TempT)
+            tempMat += (TempS-TempT) .* ρ # tempMat <- tempMat + ρ(TempS - TempT)
             tempMatCoef::Matrix{Float64} = TempCoef*TempCoef'
             diagadd!(tempMatCoef, ρ)
             TempD::Matrix{Float64} = tempMat/tempMatCoef
@@ -32,7 +32,7 @@ function updateD!(D::Array{Any,1}, A::Array{Any,1}, DataMat::Array{Any,1})
             TempS = normcol_lessequal(TempD+TempT)
             add_sub!(TempT, TempD, TempS) # TemP <- TemP + (TempD-TempS)
             ρ *= rate_ρ
-            ERROR = meansq(preD-TempD)
+            ERROR = mean(abs2(preD-TempD))
             preD = TempD
             Iter += 1
         end

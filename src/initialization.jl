@@ -1,4 +1,5 @@
-include(joinpath(dirname(@__FILE__), "updateA!.jl"))
+include("updateA!.jl")
+include("normcol_equal.jl")
 
 # return inv(τ*A*A' + λ*B*B' + γ*I)
 function getinv(τ::Float64, λ::Float64, γ::Float64, A::Matrix{Float64}, B::Matrix{Float64})
@@ -44,12 +45,12 @@ function initialization(Data::Matrix{Float64}, Label::Matrix{Int64}, DictSize::I
 
         DEMO && srand(i)
         TempRand = randn(Dim, DictSize)
-        normalize!(TempRand, 2, 1)
+        TempRand = normcol_equal(TempRand)
         @inbounds DictMat[i] = TempRand
 
         DEMO && srand(2i)
         TempRand = randn(Dim, DictSize)
-        normalize!(TempRand, 2, 1)
+        TempRand = normcol_equal(TempRand)
         @inbounds P[i]       = TempRand'
 
         @inbounds TempDataC = Data[:, find(Label .!=i)]

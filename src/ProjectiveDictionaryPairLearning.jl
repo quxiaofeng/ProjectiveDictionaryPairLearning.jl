@@ -33,8 +33,9 @@ using MAT # to load and save data
 
 include("TrainDPL.jl")
 include("ClassificationDPL.jl")
+include("normcol_equal")
 
-export dpldemo, TrainDPL, ClassificationDPL, updateA!, updateD!, updateP!, initialization, normcol_lessequal
+export dpldemo, TrainDPL, ClassificationDPL, updateA!, updateD!, updateP!, initialization, normcol_lessequal, normcol_equal
 
 function dpldemo()
     # Load training and testing data
@@ -44,11 +45,11 @@ function dpldemo()
     TtData, TtLabel = data["TtData"], data["TtLabel"]
 
     # Column normalization
-    normalize!(TrData, 2, 1)
-    normalize!(TtData, 2, 1)
+    TrData = normcol_equal(TrData)
+    TtData = normcol_equal(TtData)
 
-    TrLabel = int(TrLabel)
-    TtLabel = int(TtLabel)
+    TrLabel = round(Int64, TrLabel)
+    TtLabel = round(Int64, TtLabel)
 
     # Parameter setting
     DictSize = 30

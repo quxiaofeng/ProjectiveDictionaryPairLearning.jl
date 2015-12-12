@@ -8,8 +8,8 @@ function ClassificationDPL(TtData::Matrix{Float64}, DictMat::Array{Any,1}, Encod
     # Class-specific reconstruction error calculation
     for i=1:ClassNum
         @inbounds reconstructedTtData::Matrix{Float64} = DictMat[i] * PredictCoef[(i-1)*DictSize+1:i*DictSize, :]
-        subtract!(reconstructedTtData, TtData)
-        @inbounds Error[i,:] = sumsq(reconstructedTtData, 1)
+        reconstructedTtData -= TtData
+        @inbounds Error[i,:] = sum(abs2(reconstructedTtData), 1)
     end
     Distance::Matrix{Float64}, PredictInd::Matrix{Int64} = findmin(Error, 1)
     PredictLabel = [ind2sub(size(Error), PredictInd[i])[1] for i = 1:size(PredictInd, 2)]
