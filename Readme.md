@@ -75,7 +75,6 @@ Inner functions have been exposed to use.
 
 ## Dependencies
 
-+ [NumericExtensions.jl](https://github.com/lindahua/NumericExtensions.jl)
 + [MAT.jl](https://github.com/simonster/MAT.jl)
 
 ---
