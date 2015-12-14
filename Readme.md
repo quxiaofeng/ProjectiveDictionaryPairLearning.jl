@@ -97,7 +97,7 @@ This code is for the paper:
 
 + [Download The Paper](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_final.pdf)
 + [Download The Supplement Material](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_supp_final.pdf)
-+ [Download The MATLAB Code](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_supp_final.pdf)
++ [Download The MATLAB Code](http://www4.comp.polyu.edu.hk/~cslzhang/code/DPL_NIPS14.zip)
 
 ## DATASET
 
