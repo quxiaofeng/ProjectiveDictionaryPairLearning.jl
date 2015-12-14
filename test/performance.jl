@@ -52,7 +52,7 @@ tic()
 for i=1:ClassNum
     @inbounds tempMat = DictMat[i] * PredictCoef[(i-1)*DictSize+1:i*DictSize, :]
     tempMat -= TtData
-    @inbounds ErrorSubtract[i,:] = sumsq(tempMat, 1)
+    @inbounds ErrorSubtract[i,:] = sum(abs2(tempMat), 1)
 end
 ErrorSubtractTime = toq()
 
