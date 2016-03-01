@@ -115,6 +115,10 @@ If you have problems with the paper, the algorithm or the original matlab code, 
 
 If you have problems with the julia code, please contact us at xiaofeng.qu.hk@ieee.org.
 
+If you are using this julia code in your paper, please cite:
+
+> Qu, X.; Zhang, D.; Lu, G.; and Guo, Z., “Door knob hand recognition system,” Will appear in Systems, Man, and Cybernetics: Systems, IEEE Transactions on.
+
 ## Thanks
 
 + A thank you to [afternone](https://github.com/afternone), who optimized the julia code
