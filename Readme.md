@@ -81,12 +81,16 @@ Inner functions have been exposed to use.
 
 ## PAPER
 
-This code is for the paper:
+The original matlab code is for the paper:
 
 > + Shuhang Gu, Lei Zhang, Wangmeng Zuo, and Xiangchu Feng, ["Projective Dictionary Pair Learning for Pattern Classification,"](http://www4.comp.polyu.edu.hk/~cslzhang/paper/NIPS14_final.pdf) In NIPS 2014.
 >
 > + From **“dictionary learning”** to **“dictionary pair learning”**!
 >
+
+The julia port of this code is for the paper:
+
+> Qu, Xiaofeng; Zhang, David; Lu, Guangming; and Guo, Zhenhua, [“Door knob hand recognition system,”](http://www.doorknob.ml/) Will appear in Systems, Man, and Cybernetics: Systems, IEEE Transactions on.
 
 ### Authors' Pages
 
@@ -114,10 +118,6 @@ For experiment on UCF50, we used the Action bank feature provided in: http://www
 If you have problems with the paper, the algorithm or the original matlab code, please contact us at shuhanggu@gmail.com or cslzhang@comp.polyu.edu.hk.
 
 If you have problems with the julia code, please contact us at xiaofeng.qu.hk@ieee.org.
-
-If you are using this julia code in your research, please cite the paper below in your paper.
-
-> Qu, X.; Zhang, D.; Lu, G.; and Guo, Z., “Door knob hand recognition system,” Will appear in Systems, Man, and Cybernetics: Systems, IEEE Transactions on.
 
 ## Thanks
 
