@@ -11,28 +11,27 @@ end
 
 function updateD!(D::Array{Any,1}, A::Array{Any,1}, DataMat::Array{Any,1})
    # Update D by Eq. (12)
-    for i=1:length(D)
-        @inbounds TempCoef::Matrix{Float64} = A[i]
+    for (i, Aᵢ) in enumerate(A)
         @inbounds TempData::Matrix{Float64} = DataMat[i]
         ρ::Float64 = 1.
         rate_ρ::Float64 = 1.2
         @inbounds TempS::Matrix{Float64} = D[i]
-        TempT = zeros(TempS)
+        TempT::Matrix{Float64} = zeros(TempS)
         @inbounds preD::Matrix{Float64} = D[i]
-        Iter = 1
-        ERROR = 1.
-        while ERROR > 1e-8 && Iter < 100
+        Iter::Int = 1
+        lossᴰ::Float64 = 1.
+        while lossᴰ > 1e-8 && Iter < 100
 
-            tempMat::Matrix{Float64} = TempData*TempCoef'
+            tempMat::Matrix{Float64} = TempData*Aᵢ'
             tempMat += (TempS-TempT) .* ρ # tempMat <- tempMat + ρ(TempS - TempT)
-            tempMatCoef::Matrix{Float64} = TempCoef*TempCoef'
+            tempMatCoef::Matrix{Float64} = Aᵢ*Aᵢ'
             diagadd!(tempMatCoef, ρ)
             TempD::Matrix{Float64} = tempMat/tempMatCoef
 
             TempS = normcol_lessequal(TempD+TempT)
             add_sub!(TempT, TempD, TempS) # TemP <- TemP + (TempD-TempS)
             ρ *= rate_ρ
-            ERROR = mean(abs2(preD-TempD))
+            lossᴰ = mean(abs2(preD-TempD))
             preD = TempD
             Iter += 1
         end
